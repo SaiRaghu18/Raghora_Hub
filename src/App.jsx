@@ -10,9 +10,58 @@ function App() {
 
   // state
   // Cart array of  products cart
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(()=>{
+     
+  const savedCart = localStorage.getItem("raghu-hub-cart");
+  if(savedCart)
+  {
+   try{
+     return JSON.parse(savedCart);
+   }catch(error){
+    console.error("problem!!",error);
+    return [];
+   }
+  }
+    return [];
+  });
+
+  useEffect(()=>{
+    localStorage.setItem("raghu-hub-cart",JSON.stringify(cartItems));
+
+  },[cartItems]);
+
+
+
   // wishlist  array of product ids that wishlisted
-  const [wishlist, setWishlist] = useState([]);
+  const [wishlist, setWishlist] = useState(()=>{
+  const savedWishlist = localStorage.getItem("raghu-hub-wishlist");
+  if(savedWishlist){
+    try{
+      return JSON.parse(savedWishlist);
+
+    }catch(error){
+      console.error("problem!!",error);
+      return [];
+    }
+  }
+  return [];
+  });
+
+  useEffect(()=>{
+    localStorage.setItem("raghu-hub-wishlist",JSON.stringify(wishlist));
+
+  },[wishlist]);
+
+
+
+
+
+
+
+
+
+
+
   // Cart sidebar open/close
   const [isCartOpen, setIsCartOpen] = useState(false);
   // Profile dropdown open/close
