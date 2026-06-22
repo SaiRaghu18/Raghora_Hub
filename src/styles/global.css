@@ -1,0 +1,47 @@
+/* =============================================
+   GLOBAL RESETS & BASE STYLES
+   ============================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', Arial, Helvetica, sans-serif;
+  background-color: #f8fafc;
+  color: #0f172a;
+  line-height: 1.6;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.app {
+  width: 100%;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* =============================================
+   DARK MODE — GLOBAL OVERRIDES
+   ============================================= */
+body.dark-mode,
+.app.dark-mode {
+  background-color: #0f1117;
+  color: #e0e0e0;
+}
+
+.dark-mode h1,
+.dark-mode h2 {
+  color: #f8fafc;
+}
